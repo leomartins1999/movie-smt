@@ -1,4 +1,4 @@
-package themoviedbgateway
+package service
 
 import (
 	"fmt"
