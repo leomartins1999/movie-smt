@@ -9,6 +9,7 @@ import (
 
 func Routes(router *gin.Engine) {
 	router.GET("/search", search)
+	router.GET("/popular", getPopular)
 }
 
 func search(c *gin.Context) {
@@ -24,4 +25,19 @@ func search(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusInternalServerError, internalServerErrorError)
 	}
+}
+
+func getPopular(c *gin.Context) {
+	page := c.Query("page")
+	if page == "" {
+		page = "1"
+	}
+
+	res, err := service.GetPopularMovies(page)
+	if err == nil {
+		c.JSON(http.StatusOK, res)
+	} else {
+		c.JSON(http.StatusInternalServerError, internalServerErrorError)
+	}
+
 }
