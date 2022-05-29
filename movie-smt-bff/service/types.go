@@ -1,4 +1,4 @@
-package themoviedbgateway
+package service
 
 type SearchResponse struct {
 	Results []Movie `json:"results"`
