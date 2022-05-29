@@ -26,9 +26,8 @@ func SearchMovies(name string) ([]Movie, error) {
 
 func GetPopularMovies(page string) ([]Movie, error) {
 	queryParams := make(map[string]string)
-	println(queryParams)
+
 	queryParams["page"] = page
-	println(queryParams)
 
 	url := buildUrl("/movie/popular", queryParams)
 
