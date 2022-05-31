@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Counter, Movies } from './components';
 import './App.css';
-import { Movies } from './features/search-movies/Movies';
 
 function App() {
   return (

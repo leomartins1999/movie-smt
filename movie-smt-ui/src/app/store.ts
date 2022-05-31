@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
-import movieReducer from '../features/search-movies/movieSlice'
+import counterReducer from '../components/counter/counterSlice';
+import movieReducer from '../components/search-movies/movieSlice'
 
 export const store = configureStore({
   reducer: {
