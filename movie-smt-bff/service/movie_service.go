@@ -24,6 +24,25 @@ func SearchMovies(name string) ([]Movie, error) {
 	return deserializeMovies(data)
 }
 
+func GetTopRatedMovies(page string) ([]Movie, error) {
+	queryParams := make(map[string]string)
+	queryParams["page"] = page
+
+	url := buildUrl("/movie/top_rated", queryParams)
+
+	resp, err := get(url)
+	if err != nil {
+		return []Movie{}, err
+	}
+
+	data, err := getResponseBody(resp)
+	if err != nil {
+		return []Movie{}, err
+	}
+
+	return deserializeMovies(data)
+}
+
 func GetPopularMovies(page string) ([]Movie, error) {
 	queryParams := make(map[string]string)
 
