@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 )
 
 func get(url string) (*http.Response, error) {
@@ -32,15 +33,15 @@ func (ms MovieService) buildUrl(path string, queryParams map[string]string) stri
 }
 
 func (ms MovieService) buildQueryParams(queryParams map[string]string) string {
-	res := ""
+	params := url.Values{}
 
-	res += fmt.Sprintf("api_key=%s", ms.ApiKey)
-
+	params.Add("api_key", ms.ApiKey)
+	
 	for key, value := range queryParams {
-		res += fmt.Sprintf("&%s=%s", key, value)
+		params.Add(key, value)
 	}
-
-	return res
+	
+	return params.Encode()
 }
 
 func getResponseBody(resp *http.Response) ([]byte, error) {
