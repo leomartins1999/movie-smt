@@ -5,11 +5,22 @@ import (
 	"log"
 )
 
-func SearchMovies(name string) ([]Movie, error) {
+type IMovieService interface {
+	SearchMovies(name string) ([]Movie, error)
+	GetTopRatedMovies(page string) ([]Movie, error)
+	GetPopularMovies(page string) ([]Movie, error)
+}
+
+type MovieService struct {
+	BaseUrl string
+	ApiKey  string
+}
+
+func (ms MovieService) SearchMovies(name string) ([]Movie, error) {
 	queryParams := make(map[string]string)
 	queryParams["query"] = name
 
-	url := buildUrl("/search/movie", queryParams)
+	url := ms.buildUrl("/search/movie", queryParams)
 
 	resp, err := get(url)
 	if err != nil {
@@ -24,11 +35,11 @@ func SearchMovies(name string) ([]Movie, error) {
 	return deserializeMovies(data)
 }
 
-func GetTopRatedMovies(page string) ([]Movie, error) {
+func (ms MovieService) GetTopRatedMovies(page string) ([]Movie, error) {
 	queryParams := make(map[string]string)
 	queryParams["page"] = page
 
-	url := buildUrl("/movie/top_rated", queryParams)
+	url := ms.buildUrl("/movie/top_rated", queryParams)
 
 	resp, err := get(url)
 	if err != nil {
@@ -43,12 +54,12 @@ func GetTopRatedMovies(page string) ([]Movie, error) {
 	return deserializeMovies(data)
 }
 
-func GetPopularMovies(page string) ([]Movie, error) {
+func (ms MovieService) GetPopularMovies(page string) ([]Movie, error) {
 	queryParams := make(map[string]string)
 
 	queryParams["page"] = page
 
-	url := buildUrl("/movie/popular", queryParams)
+	url := ms.buildUrl("/movie/popular", queryParams)
 
 	resp, err := get(url)
 

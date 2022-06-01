@@ -7,9 +7,6 @@ import (
 	"net/http"
 )
 
-const apiKey = "102cf37d47760088746f948d4fff234f"
-const baseUrl = "https://api.themoviedb.org/3%s?%s"
-
 func get(url string) (*http.Response, error) {
 	resp, err := http.Get(url)
 
@@ -29,15 +26,15 @@ func get(url string) (*http.Response, error) {
 	return resp, nil
 }
 
-func buildUrl(path string, queryParams map[string]string) string {
-	queryParamsStr := buildQueryParams(queryParams)
-	return fmt.Sprintf(baseUrl, path, queryParamsStr)
+func (ms MovieService) buildUrl(path string, queryParams map[string]string) string {
+	queryParamsStr := ms.buildQueryParams(queryParams)
+	return fmt.Sprintf("%s%s?%s", ms.BaseUrl, path, queryParamsStr)
 }
 
-func buildQueryParams(queryParams map[string]string) string {
+func (ms MovieService) buildQueryParams(queryParams map[string]string) string {
 	res := ""
 
-	res += fmt.Sprintf("api_key=%s", apiKey)
+	res += fmt.Sprintf("api_key=%s", ms.ApiKey)
 
 	for key, value := range queryParams {
 		res += fmt.Sprintf("&%s=%s", key, value)
