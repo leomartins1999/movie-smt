@@ -11,6 +11,6 @@ export async function searchMovies(name: string): Promise<Movie[]> {
 }
 
 export async function getPopularMovies(): Promise<Movie[]> {
-    const resp = await client.get('/popular')
+    const resp = await client.get('/movie/popular')
     return resp.data
 }
