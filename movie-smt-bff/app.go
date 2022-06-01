@@ -1,14 +1,23 @@
 package main
 
 import (
-	controllers "movie-smt-bff/controller"
+	"movie-smt-bff/controllers"
+	"movie-smt-bff/service"
 
 	"github.com/gin-gonic/gin"
 )
 
+const apiKey = "102cf37d47760088746f948d4fff234f"
+const baseUrl = "https://api.themoviedb.org/3"
+
 func main() {
+	service := service.MovieService{BaseUrl: baseUrl, ApiKey: apiKey}
+
+	movieController := controllers.MovieController{MovieService: service}
+
 	router := gin.Default()
-	controllers.Routes(router)
+
+	movieController.Routes(router)
 
 	router.Run()
 }
