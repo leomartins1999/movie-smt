@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchMoviesAsync, getMovies, getMoviesStatus, MovieStatus } from "../../reducers/movies";
 
-export default function Search() {
+export function Search() {
     const dispatch = useAppDispatch()
 
     const status = useAppSelector(getMoviesStatus)

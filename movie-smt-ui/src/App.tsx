@@ -1,20 +1,13 @@
-import { Container, Typography } from "@mui/material";
-import Search from "./components/search/Search";
+import { Outlet } from "react-router-dom";
+import { Footer, Navbar } from "./components";
 
 function App() {
   return (
-    <Container
-      sx={{
-        width: "100%",
-        height: "100%",
-        paddingTop: "10%"
-      }}
-    >
-      <Typography variant="h2" color="white">
-        Movie SMT
-      </Typography>
-      <Search />
-    </Container>
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
   );
 }
 

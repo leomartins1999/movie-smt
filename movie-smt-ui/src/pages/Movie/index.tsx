@@ -1,9 +1,4 @@
-import { searchMovie } from "../../components/search-movies/search-movieApi";
-
-
-export function Movie() {
-    const {movieId} = useParams();
-    searchMovie(name);
+export function Movie() {;
   return (
     <div>
       <h1>Movie</h1>
