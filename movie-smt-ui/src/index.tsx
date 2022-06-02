@@ -18,7 +18,7 @@ root.render(
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/movie" element={<Movie />} />
+            <Route path="/movie/:movieId" element={<Movie />} />
             <Route path="/PopularMovies" element={<PopularMovies />} />
           </Route>
         </Routes>

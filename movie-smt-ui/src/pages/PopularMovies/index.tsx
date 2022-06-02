@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { getPopularMovies } from "../../api/gateway";
+import { MovieCard } from "../../components";
+import { Movie } from "../../utils/types";
 import styles from "./PopularMovies.module.scss";
 
 export function PopularMovies() {
-  const [movies, setMovies] = useState<{ title: string; overview: string }[]>([]);
-  
+  const [movies, setMovies] = useState<Movie[]>([]);
+
   useEffect(() => {
     getPopularMovies().then((res) => {
-      console.log(res);
-      
       setMovies(res);
     });
   }, []);
@@ -18,13 +18,13 @@ export function PopularMovies() {
       <h1>Popular Movies</h1>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.title}>
-            <h2>{movie.title}</h2>
-            <p>
-              {movie.overview.length > 250
-                ? `${movie.overview.substring(0, 100)}...`
-                : movie.overview}
-            </p>
+          <li key={movie.id}>
+            <MovieCard
+              id={movie.id}
+              title={movie.title}
+              overview={movie.overview}
+              poster_path={movie.poster_path}
+            />
           </li>
         ))}
       </ul>
