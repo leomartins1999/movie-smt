@@ -4,6 +4,7 @@ import (
 	"movie-smt-bff/controllers"
 	"movie-smt-bff/service"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,6 +17,8 @@ func main() {
 	movieController := controllers.MovieController{MovieService: service}
 
 	router := gin.Default()
+
+	router.Use(cors.Default())
 
 	movieController.Routes(router)
 
