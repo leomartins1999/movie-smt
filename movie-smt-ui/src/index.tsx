@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import App from "./App";
-import { Profile, Movie, Home } from "./pages";
+import { Profile, Movie, Home, PopularMovies } from "./pages";
 import "./index.css";
 
 const container = document.getElementById("root")!;
@@ -19,6 +19,7 @@ root.render(
             <Route index element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/movie" element={<Movie />} />
+            <Route path="/PopularMovies" element={<PopularMovies />} />
           </Route>
         </Routes>
       </Provider>

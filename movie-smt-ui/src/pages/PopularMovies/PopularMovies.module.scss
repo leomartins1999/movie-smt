@@ -1,0 +1,20 @@
+.Popular {
+  color: white;
+  font-size: 0.7em;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    li {
+      width: 20vw;
+      height: 20vw;
+      list-style: none;
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+}

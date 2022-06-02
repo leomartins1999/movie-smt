@@ -5,7 +5,6 @@ import styles from "./Home.module.scss";
 export function Home() {
   return (
     <div className={styles.Home}>
-      <h1>Home</h1>
       <Container
       sx={{
         width: "100%",

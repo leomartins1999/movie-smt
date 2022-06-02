@@ -1,8 +1,21 @@
 .navbar {
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #fff;
-      margin-bottom: 1rem;
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    li {
+      width: 30vw;
+      padding: 5px;
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        &:hover {
+          color: rgb(200, 30, 30);
+          text-decoration: none;
+        }
+      }
     }
   }
+}
