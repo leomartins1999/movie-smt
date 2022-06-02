@@ -10,9 +10,10 @@ import (
 
 const apiKey = "102cf37d47760088746f948d4fff234f"
 const baseUrl = "https://api.themoviedb.org/3"
+const imageBaseUrl = "https://image.tmdb.org/t/p"
 
 func main() {
-	service := service.MovieService{BaseUrl: baseUrl, ApiKey: apiKey}
+	service := service.MovieService{BaseUrl: baseUrl, ApiKey: apiKey, ImageBaseUrl: imageBaseUrl}
 
 	movieController := controllers.MovieController{MovieService: service}
 
