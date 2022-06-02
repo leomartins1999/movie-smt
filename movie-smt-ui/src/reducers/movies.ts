@@ -12,7 +12,7 @@ interface MovieState {
     status: MovieStatus
 }
 
-const initialState: MovieState = {
+export const initialState: MovieState = {
     movies: [],
     status: MovieStatus.Success
 }

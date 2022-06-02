@@ -1,12 +1,11 @@
-import { searchMovie } from "../../components/search-movies/search-movieApi";
-
+import { useParams } from "react-router-dom";
 
 export function Movie() {
-    const {movieId} = useParams();
-    searchMovie(name);
+  const { movieId } = useParams();
+
   return (
     <div>
-      <h1>Movie</h1>
+      <h1>Movie {movieId}</h1>
     </div>
   );
 }
