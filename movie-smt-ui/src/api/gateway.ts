@@ -15,7 +15,7 @@ export async function getPopularMovies(): Promise<Movie[]> {
     return resp.data
 }
 
-export async function getTopRated(id: number): Promise<Movie> {
+export async function getTopRated(): Promise<Movie[]> {
     const resp = await client.get(`/movie/top_rated`)
     return resp.data
 }

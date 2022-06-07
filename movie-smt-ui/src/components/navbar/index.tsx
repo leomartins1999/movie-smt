@@ -17,7 +17,7 @@ import { Search } from "../search";
 import { useEffect, useState } from "react";
 import { Container } from "@mui/system";
 
-const pages = ["Movies", "TV Shows", "Popular Movies"];
+const pages = ["Movies", "TV Shows", "Popular Movies", "Top Rated Movies"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export function Navbar() {
