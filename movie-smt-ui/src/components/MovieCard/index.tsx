@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import styles from "./MovieCard.module.scss";
 import { Movie } from "../../utils/types";
 import {
-  Box,
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
-  CircularProgress,
   createTheme,
   Skeleton,
   Typography,
@@ -29,13 +27,6 @@ const theme = createTheme({
     },
   },
 });
-
-const variants = [
-  'img',
-  'h3',
-  'body1',
-  'caption',
-] ;
 
 export function MovieCard({ id, title, overview, poster_path }: Movie) {
   const [loading, setLoading] = useState<boolean>(true);

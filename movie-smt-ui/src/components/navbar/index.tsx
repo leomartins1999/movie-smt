@@ -13,32 +13,13 @@ import {
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Search } from "../search";
-import { useEffect, useState } from "react";
 import { Container } from "@mui/system";
+import { useState } from "react";
 
-const pages = ["Movies", "TV Shows", "Popular Movies", "Top Rated Movies"];
+const pages = ["Movies", "TV Shows", "Popular Movies"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export function Navbar() {
-  /* return (
-    <nav>
-      <div className={styles.navbar}>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/Profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/PopularMovies">Popular Movies</Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  ); */
-
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 

@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
+/* import { useParams } from "react-router-dom"; */
 
 export function Movie() {
-  const { movieId } = useParams();
+  /* const { movieId } = useParams(); */
 
   return (
     <div>

@@ -1,5 +1,4 @@
 import { Container, Typography } from "@mui/material";
-import {Search} from "../../components";
 import styles from "./Home.module.scss";
 
 export function Home() {
