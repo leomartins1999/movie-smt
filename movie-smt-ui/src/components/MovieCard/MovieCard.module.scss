@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  .card {
+    padding: 5px;
+    a {
+      text-decoration: none;
+    }
+      .description {
+        display: flex;
+        justify-content: center;
+        border-top: 2px solid #656565;
+        p {
+          margin: 5px;
+        }
+      }
+    }
+  }

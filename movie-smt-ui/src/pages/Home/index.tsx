@@ -1,5 +1,4 @@
 import { Container, Typography } from "@mui/material";
-import {Search} from "../../components";
 import styles from "./Home.module.scss";
 
 export function Home() {
@@ -15,7 +14,6 @@ export function Home() {
       <Typography variant="h2" color="white">
         Movie SMT
       </Typography>
-      <Search />
     </Container>
     </div>
   );
