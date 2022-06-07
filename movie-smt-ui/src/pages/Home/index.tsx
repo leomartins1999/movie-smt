@@ -15,7 +15,6 @@ export function Home() {
       <Typography variant="h2" color="white">
         Movie SMT
       </Typography>
-      <Search />
     </Container>
     </div>
   );
