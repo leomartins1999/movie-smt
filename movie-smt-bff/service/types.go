@@ -3,18 +3,36 @@ package service
 import "fmt"
 
 type SearchResponse struct {
-	Results []Movie `json:"results"`
+	Results []MovieDO `json:"results"`
 }
 
-type Movie struct {
-	Id       int    `json:"id"`
-	Title    string `json:"title"`
-	Overview string `json:"overview"`
-	Poster   string `json:"poster_path"`
+type MovieDO struct {
+	Id              int          `json:"id"`
+	Title           string       `json:"title"`
+	Overview        string       `json:"overview"`
+	TagLine         string       `json:"tagline"`
+	Poster          string       `json:"poster_path"`
+	VoteAverage     float32      `json:"vote_average"`
+	ReleaseDate     string       `json:"release_date"`
+	Status          string       `json:"status"`
+	Runtime         int          `json:"runtime"`
+	Adult           bool         `json:"adult"`
+	Genres          []GenreDO    `json:"genres"`
+	SpokenLanguages []LanguageDO `json:"spoken_languages"`
 }
 
-func (m Movie) withPosterUrl(baseUrl string, size string) Movie {
-	return Movie{
+type GenreDO struct {
+	Id   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+type LanguageDO struct {
+	Short string `json:"iso_639_1"`
+	Name  string `json:"name"`
+}
+
+func (m MovieDO) withPosterUrl(baseUrl string, size string) MovieDO {
+	return MovieDO{
 		Id:       m.Id,
 		Title:    m.Title,
 		Overview: m.Overview,
