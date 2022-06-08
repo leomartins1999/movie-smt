@@ -15,8 +15,9 @@ import styles from "./Navbar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/system";
 import { useState } from "react";
+import { Search } from "../search";
 
-const pages = ["Movies", "TV Shows", "Popular Movies"];
+const pages = ["Movies", "TV Shows", "Popular Movies", "Top Rated Movies"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export function Navbar() {
@@ -119,7 +120,7 @@ export function Navbar() {
           >
             Movie SMT
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: "center" }}>
             {pages.map((page) => (
               <Link
                 to={"/" + page.replace(/\s+/g, "")}
@@ -134,6 +135,7 @@ export function Navbar() {
                 </Button>
               </Link>
             ))}
+            <Search />
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

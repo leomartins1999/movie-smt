@@ -28,7 +28,7 @@ const theme = createTheme({
   },
 });
 
-export function MovieCard({ id, title, overview, poster_path }: Movie) {
+export function MovieCard({ id, title, overview, poster_path, adult, genres, release_date, vote_average, spoken_languages, runtime, status, tagline}: Movie) {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -56,9 +56,11 @@ export function MovieCard({ id, title, overview, poster_path }: Movie) {
                       <Typography>{title}</Typography>
                       <Typography>
                         <div className={styles.description}>
-                          <p>2012</p>
-                          <p>R-Rated</p>
-                          <p>6.8</p>
+                          <p>{release_date}</p>
+                          <p>{vote_average}</p>
+                          <p>{runtime}</p>
+                          <p>{status}</p>
+                          {adult && <p className={styles.rating}>R</p> }
                         </div>
                       </Typography>
                   </CardContent>

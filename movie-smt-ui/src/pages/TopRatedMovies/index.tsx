@@ -19,12 +19,7 @@ export function TopRatedMovies() {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <MovieCard
-              id={movie.id}
-              title={movie.title}
-              overview={movie.overview}
-              poster_path={movie.poster_path}
-            />
+            <MovieCard {...movie} />
           </li>
         ))}
       </ul>
