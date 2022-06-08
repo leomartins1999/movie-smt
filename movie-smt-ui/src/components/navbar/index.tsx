@@ -95,12 +95,17 @@ export function Navbar() {
                   to={"/" + page.replace(/\s+/g, "")}
                   className={styles.MenuItem}
                 >
-                  <MenuItem key={page} onClick={handleCloseNavMenu} sx={{color: "black"}}>
+                  <MenuItem
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ color: "black" }}
+                  >
                     {page}
                   </MenuItem>
                 </Link>
               ))}
             </Menu>
+            <Search />
           </Box>
           <Typography
             variant="h5"
@@ -120,7 +125,13 @@ export function Navbar() {
           >
             Movie SMT
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+            }}
+          >
             {pages.map((page) => (
               <Link
                 to={"/" + page.replace(/\s+/g, "")}
