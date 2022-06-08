@@ -1,6 +1,7 @@
 import { Autocomplete, TextField } from "@mui/material";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useNavigate} from "react-router-dom";
 import {
   fetchMoviesAsync,
   getMovies,
@@ -10,6 +11,7 @@ import {
 
 export function Search() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const status = useAppSelector(getMoviesStatus);
   const movies = useAppSelector(getMovies);
@@ -17,6 +19,11 @@ export function Search() {
   useEffect(() => {
     dispatch(fetchMoviesAsync());
   }, [dispatch]);
+
+  function getMovieID(name: string | null) {
+    const movie = movies.find((movie) => movie.title === name);
+    return movie?.id
+  }
 
   return (
     <Autocomplete
@@ -27,6 +34,7 @@ export function Search() {
         <TextField {...params} label="Search for your favorite show/movie" />
       )}
       onInputChange={(_, value) => dispatch(fetchMoviesAsync(value))}
+      onChange={(_, value) => navigate(`/movie/${getMovieID(value)}`)}
     />
   );
 }
