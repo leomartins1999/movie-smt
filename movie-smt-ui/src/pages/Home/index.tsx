@@ -1,11 +1,9 @@
 import { Container, Typography } from "@mui/material";
-import {Search} from "../../components";
 import styles from "./Home.module.scss";
 
 export function Home() {
   return (
     <div className={styles.Home}>
-      <h1>Home</h1>
       <Container
       sx={{
         width: "100%",
@@ -16,7 +14,6 @@ export function Home() {
       <Typography variant="h2" color="white">
         Movie SMT
       </Typography>
-      <Search />
     </Container>
     </div>
   );

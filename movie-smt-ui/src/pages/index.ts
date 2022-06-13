@@ -1,3 +1,3 @@
 export {Movie} from './Movie';
-export {Profile} from './Profile';
+export {Movies} from './Movies';
 export {Home} from './Home';
